@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import { t, homePath, dir, type Lang } from '../i18n/ui';
+
+// One static 404 serves every URL, so it can't know the visitor's language: show both.
+const langs: Lang[] = ['en', 'fa'];
+---
+
+<Base lang="en" notFound>
+  <main class="rust page">
+    <div class="wrap inner">
+      <a href="/" lang="en" dir="ltr" class="brand">By Mary</a>
+      <p class="code" aria-hidden="true">404</p>
+      <div class="cols">
+        {
+          langs.map((lang) => {
+            const tr = t(lang);
+            return (
+              <section class="col neu-in" lang={lang} dir={dir(lang)}>
+                <h1 class="head">{tr('404.title')}</h1>
+                <p>{tr('404.body')}</p>
+                <a href={homePath(lang)} class="convex btn pill cta">
+                  {tr('404.cta')}
+                </a>
+              </section>
+            );
+          })
+        }
+      </div>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+  }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(20px, 14px + 1.5vw, 32px);
+    padding-block: 48px;
+    text-align: center;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-serif);
+    font-size: var(--fs-brand);
+    line-height: 1;
+  }
+  .code {
+    font-family: var(--font-serif);
+    font-size: clamp(7rem, 5rem + 8vw, 12rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--color-butter);
+    text-shadow:
+      calc(12px * var(--s)) calc(12px * var(--s)) calc(28px * var(--s)) var(--lo),
+      calc(-12px * var(--s)) calc(-12px * var(--s)) calc(28px * var(--s)) var(--hi);
+  }
+  .cols {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+    max-width: 52rem;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: clamp(28px, 20px + 2vw, 44px) clamp(20px, 14px + 1.5vw, 36px);
+    border-radius: clamp(28px, 24px + 1vw, 40px);
+  }
+  h1 {
+    font-size: var(--fs-h3);
+  }
+  .col[lang='fa'] {
+    font-family: var(--font-fa);
+  }
+  .col[lang='fa'] h1 {
+    font-family: var(--font-fa);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .col[lang='en'] h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  p {
+    font-size: var(--fs-body);
+    color: var(--muted);
+  }
+  .col[lang='fa'] p {
+    line-height: 1.9;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 4px;
+    padding: 14px 32px;
+    font-weight: 600;
+  }
+  @media (width >= 48rem) {
+    .cols {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

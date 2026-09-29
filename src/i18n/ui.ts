@@ -27,6 +27,9 @@ export const ui = {
     'contact.body': "Write to me. I'd love to hear the story.",
     'footer.credit': 'Designed by Ali Nazem. All rights reserved.',
     'footer.top': 'Back to top ↑',
+    '404.title': 'Page not found',
+    '404.body': "This page drifted off. Let's get you back to the calm.",
+    '404.cta': 'Back to home',
   },
   fa: {
     'meta.title': 'By Mary · مریم مالمیر، طراح گرافیک',
@@ -51,6 +54,9 @@ export const ui = {
     'contact.body': 'برایم بنویسید. دوست دارم داستانش را بشنوم.',
     'footer.credit': 'طراحی: علی ناظم. تمامی حقوق محفوظ است.',
     'footer.top': 'بازگشت به بالا ↑',
+    '404.title': 'صفحه پیدا نشد',
+    '404.body': 'این صفحه جایی دور رفته است. بیایید برگردیم به آرامش.',
+    '404.cta': 'بازگشت به خانه',
   },
 } as const;
 
