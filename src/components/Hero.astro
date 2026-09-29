@@ -1,0 +1,209 @@
+---
+import Plate from './Plate.astro';
+import { t, type Lang } from '../i18n/ui';
+import heroImage from '../assets/work/sente/packaging-line.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const badgeId = `badge-${lang}`;
+---
+
+<section id="home" class="wrap hero" aria-labelledby="hero-title">
+  <div class="hero__text">
+    <p class="eyebrow rise">{tr('hero.eyebrow')}</p>
+    <h1 id="hero-title" class="rise" style="animation-delay: 0.12s">
+      {
+        lang === 'fa' ? (
+          <>آرامش، یک <span class="light">تصمیمِ طراحی</span> است.</>
+        ) : (
+          <>Calm is a design <em>decision.</em></>
+        )
+      }
+    </h1>
+    <p class="lead rise" style="animation-delay: 0.3s">{tr('hero.lead')}</p>
+    <div class="actions rise" style="animation-delay: 0.4s">
+      <a href="#gallery" class="convex btn pill cta">{tr('hero.cta')}</a>
+      <a href="#contact" class="btn link-line">{tr('hero.contact')}</a>
+    </div>
+  </div>
+
+  <div class="art">
+    <div class="art__disc neu-lg"></div>
+    <div class="art__well neu-in"></div>
+    <a href="#gallery" aria-label={tr('hero.cta')} class="art__badge convex btn">
+      <svg class="spin" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id={badgeId} d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path></defs>
+        <text class:list={['badge-text', `l-${lang}`]} fill="currentColor"><textPath href={`#${badgeId}`}>{tr('badge.text')}</textPath></text>
+      </svg>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"></path></svg>
+    </a>
+    <div class="art__img rise" style="animation-delay: 0.5s">
+      <Plate
+        src={heroImage}
+        alt={lang === 'fa'
+          ? 'بسته‌بندی محصولات پوستی Sentè: تونر، کرم دست و ضدآفتاب'
+          : 'Sentè skincare packaging: toner bottle, hand cream jar and sunscreen tube'}
+        sizes="(min-width: 90rem) 400px, (min-width: 64rem) 28vw, (min-width: 48rem) 36vw, 60vw"
+        eager
+        lift={false}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 40px;
+    padding-block: clamp(2.75rem, 2.2rem + 2.2vw, 4.375rem) 4rem;
+  }
+  .hero__text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 16.3px + 0.95vw, 30px);
+  }
+  .eyebrow {
+    color: var(--color-peach-deep);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--fs-h1);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    padding-bottom: 0.08em;
+    color: var(--color-butter);
+  }
+  h1 em {
+    font-style: italic;
+  }
+  :lang(fa) h1 {
+    font-family: var(--font-fa);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+  :lang(fa) h1 .light {
+    font-weight: 300;
+  }
+  .lead {
+    max-width: 27rem;
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--color-peach);
+  }
+  :lang(fa) .lead {
+    line-height: 1.9;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px clamp(24px, 21px + 0.76vw, 32px);
+    margin-top: 4px;
+    font-size: clamp(1.0625rem, 1.04rem + 0.1vw, 1.125rem);
+    font-weight: 600;
+  }
+  .cta {
+    padding: clamp(17px, 15.1px + 0.48vw, 22px) clamp(28px, 23.5px + 1.14vw, 40px);
+  }
+
+  /*
+   * The art is laid out in its own container units so the whole composition
+   * (disc, well, badge, tilted plate) scales as one piece. Logical insets
+   * mirror it for RTL; the tilt flips via --tilt.
+   */
+  .art {
+    position: relative;
+    container-type: inline-size;
+    width: min(100%, 26rem);
+    aspect-ratio: 1 / 1.2;
+    justify-self: end;
+  }
+  .art > * {
+    position: absolute;
+  }
+  .art__disc {
+    inset-inline-start: 0;
+    top: 0;
+    width: 100cqw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  .art__well {
+    inset-inline-start: 12.9cqw;
+    top: 12.9cqw;
+    width: 74.2cqw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  .art__badge {
+    inset-inline-start: 71cqw;
+    top: 3.2cqw;
+    width: max(24.2cqw, 5.5rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-butter);
+  }
+  .art__badge .spin {
+    position: absolute;
+    width: 87%;
+    height: 87%;
+    /* textPath renders nothing inside an RTL page unless the svg is LTR. */
+    direction: ltr;
+  }
+  .badge-text {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+  }
+  .badge-text.l-fa {
+    font-family: var(--font-fa);
+    font-size: 12.5px;
+    letter-spacing: 0;
+  }
+  .arrow {
+    width: 30%;
+    height: 30%;
+  }
+  .art__img {
+    inset-inline-start: 33.9cqw;
+    top: 69.4cqw;
+    width: 64.5cqw;
+  }
+  .art__img :global(.plate) {
+    transform: rotate(var(--tilt));
+  }
+
+  @media (width >= 48rem) {
+    .art {
+      width: min(60%, 28rem);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .hero {
+      grid-template-columns: 56% 44%;
+      gap: 0;
+      padding-block-end: 0;
+      min-height: min(50rem, 90vh);
+    }
+    .art {
+      width: auto;
+      margin-inline-start: -13%;
+      margin-block-start: -1.25rem;
+      justify-self: stretch;
+      max-width: 38.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import { num, type Lang } from '../i18n/ui';
+
+interface Props {
+  n: number;
+  lang: Lang;
+  title: string;
+  text: string;
+  /** side: number above (desktop side-by-side rows). inline: number beside text. card: floating card. */
+  variant?: 'side' | 'inline' | 'card';
+  class?: string;
+}
+
+const { n, lang, title, text, variant = 'side', class: cls } = Astro.props;
+---
+
+<div class:list={['cap', `cap--${variant}`, { 'neu': variant === 'card' }, cls]}>
+  <span class:list={['num', variant === 'card' ? 'neu-in-sm' : 'neu-sm']} aria-hidden="true">{num(n, lang)}</span>
+  <div class="cap__text">
+    <h3 class="head">{title}</h3>
+    <p>{text}</p>
+  </div>
+</div>
+
+<style>
+  .cap {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .cap__text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  h3 {
+    font-size: var(--fs-h3);
+  }
+  p {
+    color: var(--muted);
+  }
+
+  .cap--card {
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border-radius: 28px;
+  }
+  .cap--card .cap__text {
+    gap: 10px;
+  }
+
+  @media (width >= 64rem) {
+    .cap--side {
+      flex-direction: column;
+      gap: 18px;
+    }
+    .cap--side .cap__text {
+      gap: 18px;
+    }
+    .cap--inline {
+      align-items: center;
+      gap: 22px;
+    }
+    .cap--card {
+      gap: 16px;
+      padding: 36px;
+      border-radius: 40px;
+    }
+    .cap--card .cap__text {
+      gap: 16px;
+    }
+  }
+</style>

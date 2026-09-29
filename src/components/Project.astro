@@ -1,0 +1,316 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Plate from './Plate.astro';
+import Caption from './Caption.astro';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  lang: Lang;
+  /** The first project carries the #gallery anchor and the "Gallery" eyebrow. */
+  first?: boolean;
+}
+
+const { project, lang, first = false } = Astro.props;
+const { name, intro, bands } = project.data;
+const tr = t(lang);
+const headingId = `project-${project.id}`;
+
+// Desktop geometry comes from the 1440 board, whose content area is 1248px wide.
+const cq = (px: number) => `${((px / 1248) * 100).toFixed(2)}cqw`;
+
+// Number pieces across the whole project, and alternate the small-screen
+// indent (start / end) for pieces that are not overlapping cards.
+let n = 0;
+let k = 0;
+const indent = () => {
+  const i = k++;
+  return i === 0 ? '' : i % 2 ? 'indent-start' : 'indent-end';
+};
+const rows = bands.map((band) => ({
+  tone: band.tone,
+  rows: band.rows.map((row) => ({
+    ...row,
+    style: [
+      row.size ? `--size:${cq(row.size)}` : '',
+      row.offset ? `--offset:${cq(row.offset)}` : '',
+    ]
+      .filter(Boolean)
+      .join(';'),
+    pieces: row.pieces.map((p) => ({
+      ...p,
+      n: ++n,
+      indent: row.layout.startsWith('card') ? '' : indent(),
+    })),
+  })),
+}));
+---
+
+<article id={first ? 'gallery' : `work-${project.id}`} aria-labelledby={headingId}>
+  {
+    rows.map((band, bi) => (
+      <div class:list={['band', band.tone]}>
+        <div class="wrap band__inner">
+          {bi === 0 && (
+            <header class="proj-head">
+              <div class="proj-head__title">
+                {first && <span class="eyebrow">{tr('gallery.eyebrow')}</span>}
+                <h2 id={headingId} lang="en" dir="ltr" class="display">
+                  {name}
+                </h2>
+              </div>
+              <div class="proj-head__intro">
+                <p class="lead">{intro[lang]}</p>
+              </div>
+            </header>
+          )}
+
+          {band.rows.map((row) => {
+            const [a, b] = row.pieces;
+            if (row.layout === 'pair')
+              return (
+                <div class="row row--pair" style={row.style}>
+                  {row.pieces.map((p) => (
+                    <div class:list={['pair__item', p.indent]}>
+                      <Plate src={p.image} alt={p.alt[lang]} sizes="(min-width: 90rem) 600px, (min-width: 64rem) 42vw, (min-width: 48rem) 75vw, 100vw" />
+                      <Caption n={p.n} lang={lang} title={p.title[lang]} text={p.caption[lang]} variant="inline" />
+                    </div>
+                  ))}
+                </div>
+              );
+            if (row.layout.startsWith('card'))
+              return (
+                <div class:list={['row row--card', `row--${row.layout}`]} style={row.style}>
+                  <div class="card-wrap">
+                    <Plate src={a.image} alt={a.alt[lang]} />
+                    <Caption n={a.n} lang={lang} title={a.title[lang]} text={a.caption[lang]} variant="card" class="card" />
+                  </div>
+                </div>
+              );
+            return (
+              <>
+                <div class:list={['row row--side', `row--${row.layout}`, a.indent]} style={row.style}>
+                  <Plate src={a.image} alt={a.alt[lang]} class="row__fig" />
+                  <Caption n={a.n} lang={lang} title={a.title[lang]} text={a.caption[lang]} class="row__cap" />
+                </div>
+                {b && (
+                  <div class:list={['row row--side', `row--${row.layout}`, b.indent]} style={row.style}>
+                    <Plate src={b.image} alt={b.alt[lang]} class="row__fig" />
+                    <Caption n={b.n} lang={lang} title={b.title[lang]} text={b.caption[lang]} class="row__cap" />
+                  </div>
+                )}
+              </>
+            );
+          })}
+        </div>
+      </div>
+    ))
+  }
+</article>
+
+<style>
+  .band__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack);
+    padding-block: var(--band-y) calc(var(--band-y) + 0.5rem);
+  }
+
+  /* Project header */
+  .proj-head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .proj-head__title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .eyebrow {
+    color: var(--color-rust-deep);
+  }
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--fs-display);
+    line-height: 0.84;
+    letter-spacing: -0.045em;
+    color: var(--color-rust);
+    text-shadow:
+      calc(12px * var(--s)) calc(12px * var(--s)) calc(28px * var(--s)) var(--lo),
+      calc(-12px * var(--s)) calc(-12px * var(--s)) calc(28px * var(--s)) var(--hi);
+    /* Instrument Serif's descender-free baseline sits low; keep the "è" accent clear. */
+    padding-block-start: 0.06em;
+  }
+  .proj-head__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 24rem;
+  }
+  .lead {
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  :lang(fa) .lead {
+    line-height: 1.9;
+  }
+
+  /* Rows, small screens: everything stacks, with alternating indents. */
+  .row,
+  .pair__item {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .row--pair {
+    gap: var(--stack);
+  }
+  .indent-start {
+    padding-inline-start: 36px;
+  }
+  .indent-end {
+    padding-inline-end: 36px;
+  }
+  .row--side:not(.indent-start, .indent-end) :global(.row__cap) {
+    padding-inline-start: 40px;
+  }
+  .card-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .card-wrap :global(.card) {
+    position: relative;
+    margin-block-start: -36px;
+  }
+  .row--card-end :global(.card) {
+    margin-inline-start: 56px;
+  }
+  .row--card-start :global(.card) {
+    margin-inline-end: 56px;
+  }
+
+  /* Tablet: rows narrow and drift left / right instead of indenting. */
+  @media (width >= 48rem) {
+    .proj-head {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .proj-head__intro {
+      margin-block-end: 1.5rem;
+    }
+    .row--side,
+    .pair__item {
+      width: 80%;
+    }
+    .indent-start,
+    .indent-end {
+      padding-inline: 0;
+    }
+    .indent-start {
+      margin-inline-start: auto;
+    }
+    .row--side:not(.indent-start, .indent-end) :global(.row__cap) {
+      padding-inline-start: 0;
+    }
+    .card-wrap {
+      width: 88%;
+    }
+    .row--card-start .card-wrap {
+      margin-inline-start: auto;
+    }
+    .card-wrap :global(.card) {
+      width: 60%;
+      box-sizing: border-box;
+      margin-block-start: -80px;
+    }
+    .row--card-end :global(.card) {
+      margin-inline-start: auto;
+      margin-inline-end: -6%;
+    }
+    .row--card-start :global(.card) {
+      margin-inline-end: auto;
+      margin-inline-start: -6%;
+    }
+  }
+
+  /* Desktop: the asymmetric editorial layout from the 1440 board, in container units. */
+  @media (width >= 64rem) {
+    .band__inner {
+      container-type: inline-size;
+    }
+    .row,
+    .row--side,
+    .pair__item {
+      width: auto;
+    }
+    .indent-start {
+      margin-inline-start: 0;
+    }
+
+    .row--side {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 7.7cqw;
+    }
+    .row--side-end {
+      flex-direction: row-reverse;
+    }
+    .row--side :global(.row__fig) {
+      flex: 0 1 var(--size, 55cqw);
+    }
+    .row--side :global(.row__cap) {
+      flex: 0 0 max(26.4cqw, 15rem);
+      margin-block-start: var(--offset, 10cqw);
+    }
+
+    .row--pair {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 7.7cqw;
+    }
+    .pair__item {
+      gap: 36px;
+    }
+    .pair__item:first-child {
+      width: 44.9cqw;
+      margin-block-start: var(--offset, 11.2cqw);
+    }
+    .pair__item:last-child {
+      width: 48.1cqw;
+    }
+
+    .card-wrap {
+      width: var(--size, 65.7cqw);
+      display: block;
+    }
+    .card-wrap :global(.card) {
+      position: absolute;
+      width: max(30.45cqw, 19rem);
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .row--card-end :global(.card) {
+      margin: 0;
+      inset-inline-end: -20cqw;
+      inset-block-end: 6.4cqw;
+    }
+    .row--card-start {
+      align-items: flex-end;
+      margin-block-end: 5.6cqw;
+    }
+    .row--card-start .card-wrap {
+      margin-inline: 0 3.2cqw;
+    }
+    .row--card-start :global(.card) {
+      margin: 0;
+      inset-inline-start: -11.2cqw;
+      inset-block-end: -5.6cqw;
+    }
+  }
+</style>

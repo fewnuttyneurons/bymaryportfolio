@@ -1,0 +1,59 @@
+---
+import { t, year, EMAIL, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<footer class="butter">
+  <div class="wrap row">
+    <span class="credit">© {year(lang)} · {tr('footer.credit')}</span>
+    <a href={`mailto:${EMAIL}`} lang="en" dir="ltr" class="mail link-line">{EMAIL}</a>
+    <a href="#home" class="top neu-sm btn pill">{tr('footer.top')}</a>
+  </div>
+</footer>
+
+<style>
+  .row {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 18px;
+    padding-block: 0 clamp(32px, 27.5px + 1.14vw, 44px);
+    font-size: 1rem;
+    color: var(--color-ink-soft);
+    text-align: center;
+  }
+  .credit {
+    max-width: 16rem;
+    line-height: 1.6;
+  }
+  .mail {
+    font-family: var(--font-sans);
+    color: var(--color-rust-deep);
+    border-bottom-color: var(--color-rust);
+  }
+  .top {
+    order: 1;
+    padding: 13px 24px;
+    color: var(--color-ink);
+  }
+
+  @media (width >= 48rem) {
+    .row {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: start;
+    }
+    .credit {
+      max-width: none;
+    }
+    .top {
+      order: 0;
+    }
+  }
+</style>

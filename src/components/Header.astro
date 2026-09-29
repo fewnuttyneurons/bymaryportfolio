@@ -1,0 +1,114 @@
+---
+import { t, homePath, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const other: Lang = lang === 'en' ? 'fa' : 'en';
+const label = (l: Lang) => (l === 'en' ? 'EN' : 'فارسی');
+---
+
+<header class="wrap top">
+  <a href="#home" lang="en" dir="ltr" class="brand">By Mary</a>
+
+  <nav aria-label={tr('nav.label')} class="nav neu-sm pill">
+    <a href="#home" class="neu-in-sm pill is-current">{tr('nav.home')}</a>
+    <a href="#gallery" class="btn pill">{tr('nav.gallery')}</a>
+    <a href="#contact" class="btn pill">{tr('nav.contact')}</a>
+  </nav>
+
+  <div class="langs neu-in-sm pill" role="group" aria-label={tr('lang.label')}>
+    <span class:list={['convex pill is-current', `l-${lang}`]} lang={lang} aria-current="true">{label(lang)}</span>
+    <a href={homePath(other)} hreflang={other} lang={other} class:list={['btn pill', `l-${other}`]}>{label(other)}</a>
+  </div>
+</header>
+
+<style>
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 24px;
+    padding-block: clamp(20px, 14.4px + 1.52vw, 36px) 16px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-serif);
+    font-size: var(--fs-brand);
+    line-height: 1;
+  }
+  .nav {
+    order: 3;
+    width: 100%;
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+  }
+  .nav a {
+    flex: 1;
+    text-align: center;
+    padding: 13px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .nav .is-current {
+    font-weight: 600;
+  }
+  .langs {
+    display: flex;
+    gap: 2px;
+    padding: 5px;
+  }
+  .langs > * {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  .langs .is-current {
+    font-weight: 600;
+  }
+  .langs a {
+    color: var(--color-peach-deep);
+  }
+  .l-fa {
+    font-family: var(--font-fa);
+  }
+  .l-en {
+    font-family: var(--font-sans);
+  }
+
+  @media (width >= 48rem) {
+    .top {
+      flex-wrap: nowrap;
+      padding-block-end: 36px;
+    }
+    .nav {
+      order: 0;
+      width: auto;
+      padding: 8px;
+    }
+    .nav a {
+      flex: none;
+      padding: 13px 28px;
+    }
+    .langs {
+      padding: 7px;
+      gap: 4px;
+    }
+    .langs > * {
+      padding: 9px 20px;
+    }
+  }
+</style>

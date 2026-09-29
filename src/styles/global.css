@@ -1,0 +1,288 @@
+@import 'tailwindcss';
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/dm-sans/wght.css';
+@import '@fontsource-variable/vazirmatn/wght.css';
+
+@theme {
+  --color-rust: #ba3801;
+  --color-rust-deep: #8f2a00;
+  --color-butter: #ffec89;
+  --color-butter-base: #ffefa0;
+  --color-ink: #2b1a12;
+  --color-ink-soft: #5a4636;
+  --color-peach: #ffe3c4;
+  --color-peach-deep: #ffd7a8;
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'DM Sans Variable', system-ui, sans-serif;
+  --font-fa: 'Vazirmatn Variable', Tahoma, sans-serif;
+}
+
+/*
+ * Fluid scale: each value runs linearly from the 390px mobile board to the
+ * 1440px desktop board, then clamps. Persian overrides below (Vazirmatn is
+ * taller and wider, so headings are smaller with more line-height).
+ */
+:root {
+  --gutter: clamp(1.25rem, -0.514rem + 7.238vw, 6rem);
+  --band-y: clamp(5rem, 4.071rem + 3.81vw, 7.5rem);
+  --stack: clamp(4rem, 3.164rem + 3.429vw, 6.25rem);
+
+  --fs-display: clamp(7.75rem, 5.521rem + 9.143vw, 13.75rem);
+  --fs-h1: clamp(4rem, 2.282rem + 7.048vw, 8.625rem);
+  --fs-h2: clamp(3.25rem, 2.229rem + 4.19vw, 6rem);
+  --fs-h3: clamp(2rem, 1.629rem + 1.524vw, 3rem);
+  --fs-quote: clamp(1.75rem, 1.379rem + 1.524vw, 2.75rem);
+  --fs-cta: clamp(1.5625rem, 0.936rem + 2.571vw, 3.25rem);
+  --fs-lead: clamp(1.125rem, 1.032rem + 0.381vw, 1.375rem);
+  --fs-body: clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem);
+  --fs-eyebrow: clamp(1rem, 0.907rem + 0.381vw, 1.25rem);
+  --fs-brand: clamp(1.75rem, 1.611rem + 0.571vw, 2.125rem);
+
+  --lh-head: 1.05;
+  --lh-body: 1.6;
+  --font-head: var(--font-serif);
+  --font-body: var(--font-sans);
+  --head-weight: 400;
+  --tilt: -4deg;
+
+  /* Neumorphic shadow scale: 1 on desktop, about half on phones. */
+  --s: 0.47;
+}
+
+:root:lang(fa) {
+  --fs-h1: clamp(3.125rem, 1.779rem + 5.524vw, 6.75rem);
+  --fs-h2: clamp(2.75rem, 1.914rem + 3.429vw, 5rem);
+  --fs-h3: clamp(1.875rem, 1.55rem + 1.333vw, 2.75rem);
+  --fs-quote: clamp(1.5rem, 1.175rem + 1.333vw, 2.375rem);
+  --lh-head: 1.35;
+  --lh-body: 1.9;
+  --font-head: var(--font-fa);
+  --font-body: var(--font-fa);
+  --head-weight: 700;
+  --tilt: 4deg;
+}
+
+@media (width >= 48rem) {
+  :root { --s: 0.7; }
+}
+@media (width >= 80rem) {
+  :root { --s: 1; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--color-butter-base);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  figure,
+  blockquote,
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 4px;
+  }
+  .rust :focus-visible {
+    outline-color: var(--color-butter);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    box-sizing: border-box;
+  }
+
+  /* Tones: each band sets its own surface and shadow colours. */
+  .butter {
+    --bg: #ffefa0;
+    --hi: #fff7c6;
+    --lo: #d2b85e;
+    --hi2: #fff4b8;
+    --lo2: #f0dc86;
+    --muted: var(--color-ink-soft);
+    --mark: var(--color-rust);
+    background: var(--bg);
+    color: var(--color-ink);
+  }
+  .rust {
+    --bg: #ba3801;
+    --hi: #e2551a;
+    --lo: #7a2300;
+    --hi2: #cc4410;
+    --lo2: #a63000;
+    --muted: var(--color-peach);
+    --mark: currentColor;
+    background: var(--bg);
+    color: var(--color-butter);
+  }
+
+  .neu {
+    background: var(--bg);
+    box-shadow:
+      calc(30px * var(--s)) calc(30px * var(--s)) calc(70px * var(--s)) var(--lo),
+      calc(-30px * var(--s)) calc(-30px * var(--s)) calc(70px * var(--s)) var(--hi);
+  }
+  .neu-lg {
+    background: var(--bg);
+    box-shadow:
+      calc(40px * var(--s)) calc(40px * var(--s)) calc(90px * var(--s)) var(--lo),
+      calc(-40px * var(--s)) calc(-40px * var(--s)) calc(90px * var(--s)) var(--hi);
+  }
+  .neu-sm {
+    background: var(--bg);
+    box-shadow:
+      calc(16px * var(--s)) calc(16px * var(--s)) calc(38px * var(--s)) var(--lo),
+      calc(-16px * var(--s)) calc(-16px * var(--s)) calc(38px * var(--s)) var(--hi);
+  }
+  .neu-in {
+    background: var(--bg);
+    box-shadow:
+      inset calc(18px * var(--s)) calc(18px * var(--s)) calc(42px * var(--s)) var(--lo),
+      inset calc(-18px * var(--s)) calc(-18px * var(--s)) calc(42px * var(--s)) var(--hi);
+  }
+  .neu-in-sm {
+    background: var(--bg);
+    box-shadow:
+      inset 10px 10px 24px var(--lo),
+      inset -10px -10px 24px var(--hi);
+  }
+  .convex {
+    background: linear-gradient(145deg, var(--hi2), var(--lo2));
+    box-shadow:
+      calc(18px * var(--s)) calc(18px * var(--s)) calc(42px * var(--s)) var(--lo),
+      calc(-18px * var(--s)) calc(-18px * var(--s)) calc(42px * var(--s)) var(--hi);
+  }
+
+  .btn {
+    transition:
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+  .btn:active {
+    transform: none;
+    background: var(--bg);
+    box-shadow:
+      inset 12px 12px 28px var(--lo),
+      inset -12px -12px 28px var(--hi);
+  }
+  @media (hover: hover) {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .pill {
+    border-radius: 999px;
+  }
+
+  .eyebrow {
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  :lang(fa) .eyebrow {
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .head {
+    font-family: var(--font-head);
+    font-weight: var(--head-weight);
+    line-height: var(--lh-head);
+  }
+
+  .num {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(3.25rem, 2.957rem + 1.143vw, 4rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-family: var(--font-serif);
+    font-size: clamp(1.375rem, 1.328rem + 0.19vw, 1.5rem);
+    color: var(--mark);
+  }
+  :lang(fa) .num {
+    font-family: var(--font-fa);
+    font-weight: 600;
+  }
+
+  .link-line {
+    font-weight: 600;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 3px;
+  }
+}
+
+@layer utilities {
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(48px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .rise {
+    animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .spin {
+    animation: spin 24s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise,
+  .spin {
+    animation: none;
+  }
+  .btn,
+  .plate {
+    transition: none;
+  }
+  .btn:hover,
+  .plate:hover {
+    transform: none;
+  }
+}
