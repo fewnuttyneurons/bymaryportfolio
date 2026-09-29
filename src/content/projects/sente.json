@@ -1,0 +1,191 @@
+{
+  "name": "Sentè",
+  "order": 1,
+  "intro": {
+    "en": "A skincare brand for sensitive skin, designed to feel like one long, slow breath.",
+    "fa": "برندی برای پوست‌های حساس؛ طراحی‌شده تا حسِ یک نفسِ عمیق و آرام را بدهد."
+  },
+  "bands": [
+    {
+      "tone": "butter",
+      "rows": [
+        {
+          "layout": "side-start",
+          "size": 720,
+          "offset": 110,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/identity-logo.webp",
+              "alt": {
+                "en": "Sentè visual identity: logo with swan mark, logo colour variations, concept and target audience",
+                "fa": "هویت بصری Sentè: لوگو با نشان قو، رنگ‌بندی‌های لوگو، مفهوم و مخاطب هدف"
+              },
+              "title": {
+                "en": "The swan",
+                "fa": "قو"
+              },
+              "caption": {
+                "en": "A swan settles on still water. Nothing needs to be said louder.",
+                "fa": "قویی آرام روی آبِ ساکن می‌نشیند. لازم نیست چیزی بلندتر گفته شود."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "side-end",
+          "size": 640,
+          "offset": 200,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/identity-palette.webp",
+              "alt": {
+                "en": "Sentè colour palette, bilingual typography, swan pattern, illustrations and icons",
+                "fa": "پالت رنگی، تایپوگرافی دوزبانه، پترن قو، تصویرسازی و آیکون‌های Sentè"
+              },
+              "title": {
+                "en": "Four quiet colors",
+                "fa": "چهار رنگِ آرام"
+              },
+              "caption": {
+                "en": "Borrowed from one still morning: milk, ink, sky and sand.",
+                "fa": "وام‌گرفته از یک صبحِ ساکت: شیر، جوهر، آسمان و شن."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tone": "rust",
+      "rows": [
+        {
+          "layout": "card-end",
+          "size": 820,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/packaging-line.webp",
+              "alt": {
+                "en": "Sentè skincare packaging: toner bottle, hand cream jar and sunscreen tube",
+                "fa": "بسته‌بندی محصولات پوستی Sentè: تونر، کرم دست و ضدآفتاب"
+              },
+              "title": {
+                "en": "Three on a shelf",
+                "fa": "سه تا روی یک طاقچه"
+              },
+              "caption": {
+                "en": "Somehow the whole room breathes easier.",
+                "fa": "و ناگهان تمامِ اتاق راحت‌تر نفس می‌کشد."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "pair",
+          "offset": 140,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/serum-business-card.webp",
+              "alt": {
+                "en": "Sentè serum bottle on a stone plinth and blue business cards",
+                "fa": "بطری سرم Sentè روی پایهٔ سنگی و کارت‌های ویزیت آبی"
+              },
+              "title": {
+                "en": "Blue on stone",
+                "fa": "آبی روی سنگ"
+              },
+              "caption": {
+                "en": "One drop of sky, resting on something warm.",
+                "fa": "قطره‌ای از آسمان، آرمیده روی چیزی گرم."
+              }
+            },
+            {
+              "image": "../../assets/work/sente/stationery-gift-tag.webp",
+              "alt": {
+                "en": "Sentè stationery set, folder and blue gift tags",
+                "fa": "ست اداری، پوشه و تگ‌های هدیهٔ آبی Sentè"
+              },
+              "title": {
+                "en": "Soft-spoken paper",
+                "fa": "کاغذهای کم‌حرف"
+              },
+              "caption": {
+                "en": "Even the paperwork whispers.",
+                "fa": "حتی کاغذها هم آهسته حرف می‌زنند."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tone": "butter",
+      "rows": [
+        {
+          "layout": "side-end",
+          "size": 600,
+          "offset": 60,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/shopping-bag.webp",
+              "alt": {
+                "en": "Sentè paper shopping bag, front and back",
+                "fa": "کیف خرید کاغذی Sentè، روی و پشت"
+              },
+              "title": {
+                "en": "Carried home",
+                "fa": "تا خانه"
+              },
+              "caption": {
+                "en": "The kind of bag you carry like a small secret.",
+                "fa": "کیفی که مثل یک رازِ کوچک با خودت می‌بری."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "side-start",
+          "size": 700,
+          "offset": 220,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/brochure.webp",
+              "alt": {
+                "en": "Sentè bilingual tri-fold brochure",
+                "fa": "بروشور سه‌لتی دوزبانهٔ Sentè"
+              },
+              "title": {
+                "en": "Two tongues, one voice",
+                "fa": "دو زبان، یک صدا"
+              },
+              "caption": {
+                "en": "Read it left to right. Or right to left. It still sounds calm.",
+                "fa": "از راست به چپ بخوانش، یا از چپ به راست؛ باز هم آرام است."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "card-start",
+          "size": 900,
+          "pieces": [
+            {
+              "image": "../../assets/work/sente/print-overview.webp",
+              "alt": {
+                "en": "Sentè label, packaging dieline, brochure and gift tag design overview",
+                "fa": "طراحی لیبل، گستردهٔ بسته‌بندی، بروشور و تگ هدیهٔ Sentè"
+              },
+              "title": {
+                "en": "Behind the calm",
+                "fa": "پشتِ این آرامش"
+              },
+              "caption": {
+                "en": "A hundred careful decisions that nobody will ever notice.",
+                "fa": "صدها تصمیمِ دقیق که هیچ‌کس هرگز متوجهشان نمی‌شود."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
