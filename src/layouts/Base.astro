@@ -1,6 +1,5 @@
 ---
 import { getImage } from 'astro:assets';
-import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 import ogSource from '../assets/work/sente/packaging-line.webp';
 import { dir, homePath, t, EMAIL, type Lang } from '../i18n/ui';
@@ -68,7 +67,5 @@ const person = {
   </head>
   <body>
     <slot />
-    {/* Vercel Web Analytics: cookie-free; only in production builds so local runs don't 404 on its endpoint. */}
-    {import.meta.env.PROD && <Analytics />}
   </body>
 </html>
