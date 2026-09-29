@@ -34,7 +34,8 @@ const badgeId = `badge-${lang}`;
   <div class="art">
     <div class="art__disc neu-lg"></div>
     <div class="art__well neu-in"></div>
-    <a href="#gallery" aria-label={tr('hero.cta')} class="art__badge convex btn">
+    <!-- Decorative duplicate of the "See the work" button beside it: hidden from screen readers and skipped by Tab. -->
+    <a href="#gallery" aria-hidden="true" tabindex="-1" class="art__badge convex btn">
       <svg class="spin" viewBox="0 0 120 120" aria-hidden="true">
         <defs><path id={badgeId} d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path></defs>
         <text class:list={['badge-text', `l-${lang}`]} fill="currentColor"><textPath href={`#${badgeId}`}>{tr('badge.text')}</textPath></text>
