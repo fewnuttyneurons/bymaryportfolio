@@ -1,0 +1,20 @@
+# Local-only project memory & instructions (user decides what goes remote)
+COMMAND_CENTER.md
+CLAUDE.md
+
+# Raw source media (originals; optimized copies go elsewhere)
+/content/
+
+# Dependencies, builds, env, OS
+node_modules/
+.next/
+dist/
+.vercel/
+.env
+.env.*
+.DS_Store
+
+# Astro generated types, local tool output
+.astro/
+.playwright-mcp/
+.claude/
