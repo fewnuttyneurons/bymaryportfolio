@@ -55,7 +55,7 @@ const rows = bands.map((band) => ({
             <header class="proj-head">
               <div class="proj-head__title">
                 {first && <span class="eyebrow">{tr('gallery.eyebrow')}</span>}
-                <h2 id={headingId} lang="en" dir="ltr" class="display">
+                <h2 id={headingId} lang="en" dir="ltr" class="display" style={`--chars:${name.length}`}>
                   {name}
                 </h2>
               </div>
@@ -121,6 +121,7 @@ const rows = bands.map((band) => ({
     display: flex;
     flex-direction: column;
     gap: 12px;
+    container-type: inline-size;
   }
   .proj-head__title {
     display: flex;
@@ -133,7 +134,8 @@ const rows = bands.map((band) => ({
   .display {
     font-family: var(--font-serif);
     font-weight: 400;
-    font-size: var(--fs-display);
+    /* Long names shrink to fit narrow screens (~0.42em per letter); short ones never hit the cap. */
+    font-size: min(var(--fs-display), calc(100cqi / (var(--chars) * 0.42)));
     line-height: 0.84;
     letter-spacing: -0.045em;
     color: var(--color-rust);
