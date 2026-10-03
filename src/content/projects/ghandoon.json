@@ -1,0 +1,278 @@
+{
+  "name": "Ghandoon",
+  "order": 2,
+  "intro": {
+    "en": "A small café and patisserie with a sugar bowl on every table. Built from hand-drawn pastries, one cheerful face and a simple promise: a sugar cube for your tea.",
+    "fa": "یک کافه‌قنادیِ کوچک با یک قندون روی هر میز. ساخته‌شده از شیرینی‌های دست‌کشیده، یک چهره‌ی خندان و یک قولِ ساده: یه حبه قند برای چاییت."
+  },
+  "bands": [
+    {
+      "tone": "rust",
+      "rows": [
+        {
+          "layout": "side-start",
+          "size": 560,
+          "offset": 120,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/storefront-awning.webp",
+              "alt": {
+                "en": "Ghandoon storefront: olive striped awning with the illustrated host character and tagline, logo on the window",
+                "fa": "ویترین قندون: سایبانِ راه‌راهِ زیتونی با کاراکترِ میزبان و شعار، لوگو روی شیشه"
+              },
+              "title": {
+                "en": "First, the awning",
+                "fa": "اول، سایبان"
+              },
+              "caption": {
+                "en": "Olive stripes and a grin, so the street knows where the sweet things are.",
+                "fa": "راه‌راهِ زیتونی و یک لبخند، تا کوچه بداند شیرینی‌ها کجا هستند."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "side-end",
+          "size": 720,
+          "offset": 160,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/pastry-pattern.webp",
+              "alt": {
+                "en": "Ghandoon wrapping paper: hand-drawn pattern of croissants, strawberries, cupcakes and biscuits with a brown logo label",
+                "fa": "کاغذ کادوی قندون: پترنِ دست‌کشیده‌ی کروسان، توت‌فرنگی، کاپ‌کیک و بیسکویت با برچسبِ لوگو"
+              },
+              "title": {
+                "en": "Drawn by hand",
+                "fa": "با دست کشیده‌شده"
+              },
+              "caption": {
+                "en": "Croissant, strawberry, cupcake, braid. The whole display case, in one line.",
+                "fa": "کروسان، توت‌فرنگی، کاپ‌کیک، نانِ بافته. کلِ ویترین، در یک خط."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "pair",
+          "offset": 140,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/menu-page-1.webp",
+              "alt": {
+                "en": "Ghandoon menu, page one: pixel-type header, tarts and cakes with hand-drawn croissant and cupcake",
+                "fa": "منوی قندون، صفحه‌ی اول: سرتیترِ پیکسلی، تارت‌ها و کیک‌ها با طراحیِ کروسان و کاپ‌کیک"
+              },
+              "title": {
+                "en": "Read from the right",
+                "fa": "از راست بخوانید"
+              },
+              "caption": {
+                "en": "Tarts first, cakes next, and a croissant keeping watch in the margin.",
+                "fa": "اول تارت‌ها، بعد کیک‌ها، و کروسانی که از حاشیه مراقب است."
+              }
+            },
+            {
+              "image": "../../assets/work/ghandoon/menu-page-2.webp",
+              "alt": {
+                "en": "Ghandoon menu, page two on olive: French pastries, drinks and desserts with hand-drawn strawberries and biscuit",
+                "fa": "منوی قندون، صفحه‌ی دوم روی زیتونی: شیرینی‌های فرانسوی، نوشیدنی‌ها و دسرها با طراحیِ توت‌فرنگی و بیسکویت"
+              },
+              "title": {
+                "en": "Turn the page",
+                "fa": "ورق بزنید"
+              },
+              "caption": {
+                "en": "Pastries, drinks, desserts. A strawberry is always nearby.",
+                "fa": "شیرینی‌ها، نوشیدنی‌ها، دسرها. یک توت‌فرنگی همیشه همین نزدیکی‌هاست."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tone": "butter",
+      "rows": [
+        {
+          "layout": "pair",
+          "offset": 120,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/logo-biscuit.webp",
+              "alt": {
+                "en": "Ghandoon logo in a cream oval on a scalloped butter-biscuit shape, on rust",
+                "fa": "لوگوی قندون در بیضیِ کرمی روی فرمِ بیسکویتِ کره‌ای با لبه‌های موج‌دار، روی زمینه‌ی آجری"
+              },
+              "title": {
+                "en": "A name like a biscuit",
+                "fa": "نامی شبیه بیسکویت"
+              },
+              "caption": {
+                "en": "The logo sits on a butter biscuit, scalloped edges and all.",
+                "fa": "لوگو روی یک بیسکویتِ کره‌ای نشسته؛ با همان لبه‌های موج‌دار."
+              }
+            },
+            {
+              "image": "../../assets/work/ghandoon/business-card.webp",
+              "alt": {
+                "en": "Ghandoon biscuit-shaped business card with the host character, tagline and hand-drawn pastries",
+                "fa": "کارت ویزیتِ بیسکویتیِ قندون با کاراکترِ میزبان، شعار و شیرینی‌های دست‌کشیده"
+              },
+              "title": {
+                "en": "Say hello",
+                "fa": "سلام کنید"
+              },
+              "caption": {
+                "en": "The same biscuit, this time with the host waving you in.",
+                "fa": "باز هم همان بیسکویت؛ این بار با میزبانی که به داخل دعوتتان می‌کند."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "pair",
+          "offset": 80,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/shopping-bag.webp",
+              "alt": {
+                "en": "Ghandoon olive shopping bag with cream oval logo and repeated wordmark",
+                "fa": "ساک خریدِ زیتونیِ قندون با لوگو در بیضیِ کرمی و نوشتارِ تکرارشونده"
+              },
+              "title": {
+                "en": "To take away",
+                "fa": "برای بیرون‌بردن"
+              },
+              "caption": {
+                "en": "The name, said three times, like someone calling it from the door.",
+                "fa": "نامی که سه بار تکرار می‌شود؛ مثل کسی که از دمِ در صدایش می‌زند."
+              }
+            },
+            {
+              "image": "../../assets/work/ghandoon/paper-bag.webp",
+              "alt": {
+                "en": "Ghandoon folded paper bag with croissant pattern on the sides",
+                "fa": "پاکتِ کاغذیِ تاخورده‌ی قندون با پترنِ کروسان روی بدنه"
+              },
+              "title": {
+                "en": "Folded at the top",
+                "fa": "تاخورده از بالا"
+              },
+              "caption": {
+                "en": "Croissants on the outside, still warm on the inside.",
+                "fa": "کروسان‌ها روی بدنه؛ هنوز گرم در داخل."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "side-start",
+          "size": 620,
+          "offset": 180,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/cake-box.webp",
+              "alt": {
+                "en": "Ghandoon cream cake box with cupcake mark on the lid, logo on the side and croissant-pattern band",
+                "fa": "جعبه‌ی کیکِ کرمیِ قندون با نقشِ کاپ‌کیک روی در، لوگو روی بدنه و نوارِ پترنِ کروسان"
+              },
+              "title": {
+                "en": "A box for the cake",
+                "fa": "جعبه‌ای برای کیک"
+              },
+              "caption": {
+                "en": "The cupcake sits on the lid like a seal.",
+                "fa": "کاپ‌کیک مثل یک مُهر روی درِ جعبه نشسته."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "card-start",
+          "size": 900,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/pastry-sleeves.webp",
+              "alt": {
+                "en": "Two Ghandoon pastry sleeves with croissants: one in the hand-drawn pattern, one with the logo and host character",
+                "fa": "دو پاکتِ شیرینیِ قندون با کروسان: یکی با پترنِ دست‌کشیده، یکی با لوگو و کاراکترِ میزبان"
+              },
+              "title": {
+                "en": "One croissant each",
+                "fa": "هرکدام یک کروسان"
+              },
+              "caption": {
+                "en": "One wears the pattern, one wears the host. Both are gone by noon.",
+                "fa": "یکی پترن را پوشیده، یکی میزبان را. هر دو تا ظهر تمام می‌شوند."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tone": "rust",
+      "rows": [
+        {
+          "layout": "side-end",
+          "size": 560,
+          "offset": 140,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/coffee-cup.webp",
+              "alt": {
+                "en": "Ghandoon brown takeaway coffee cup with white croissant pattern",
+                "fa": "لیوانِ قهوه‌ی قهوه‌ایِ قندون با پترنِ سفیدِ کروسان"
+              },
+              "title": {
+                "en": "Coffee, to go",
+                "fa": "قهوه، برای بیرون"
+              },
+              "caption": {
+                "en": "A croissant on every cup, in case you forgot to order one.",
+                "fa": "روی هر لیوان یک کروسان؛ اگر یادتان رفت سفارش بدهید."
+              }
+            }
+          ]
+        },
+        {
+          "layout": "pair",
+          "offset": 120,
+          "pieces": [
+            {
+              "image": "../../assets/work/ghandoon/poster-croissant.webp",
+              "alt": {
+                "en": "Ghandoon social post: the Persian word for croissant repeated in pixel type behind a croissant",
+                "fa": "پستِ شبکه‌ی اجتماعیِ قندون: واژه‌ی کروسان با حروفِ پیکسلی، تکرارشده پشتِ یک کروسان"
+              },
+              "title": {
+                "en": "Say it five times",
+                "fa": "پنج بار بگویید"
+              },
+              "caption": {
+                "en": "Croissant, croissant, croissant. Pixel letters, loud enough for a feed.",
+                "fa": "کروسان، کروسان، کروسان. حروفِ پیکسلی، آن‌قدر بلند که در فید دیده شود."
+              }
+            },
+            {
+              "image": "../../assets/work/ghandoon/poster-tarts.webp",
+              "alt": {
+                "en": "Ghandoon social post: tart list in pixel type over olive and cream stripes with a lattice tart",
+                "fa": "پستِ شبکه‌ی اجتماعیِ قندون: فهرستِ تارت‌ها با حروفِ پیکسلی روی راه‌راهِ زیتونی و کرمی با یک تارتِ مشبک"
+              },
+              "title": {
+                "en": "Tart season",
+                "fa": "فصلِ تارت"
+              },
+              "caption": {
+                "en": "Lemon, strawberry, pistachio. Striped like the awning, so you know where it came from.",
+                "fa": "لیمو، توت‌فرنگی، پسته. راه‌راه مثل سایبان، تا بدانید از کجا آمده."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
