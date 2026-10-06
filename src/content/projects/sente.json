@@ -15,10 +15,10 @@
           "offset": 110,
           "pieces": [
             {
-              "image": "../../assets/work/sente/identity-logo.webp",
+              "image": "../../assets/work/sente/logo-on-photo.webp",
               "alt": {
-                "en": "Sentè visual identity: logo with swan mark, logo colour variations, concept and target audience",
-                "fa": "هویت بصری Sentè: لوگو با نشان قو، رنگ‌بندی‌های لوگو، مفهوم و مخاطب هدف"
+                "en": "Sentè logo with swan mark in cream, over a soft beige photo of a glass dropper and serum",
+                "fa": "لوگوی Sentè با نشان قو، به رنگ کِرم، روی عکسی بژ از قطره‌چکان و سرم شیشه‌ای"
               },
               "title": {
                 "en": "The swan",
@@ -37,18 +37,18 @@
           "offset": 200,
           "pieces": [
             {
-              "image": "../../assets/work/sente/identity-palette.webp",
+              "image": "../../assets/work/sente/logo-on-navy.webp",
               "alt": {
-                "en": "Sentè colour palette, bilingual typography, swan pattern, illustrations and icons",
-                "fa": "پالت رنگی، تایپوگرافی دوزبانه، پترن قو، تصویرسازی و آیکون‌های Sentè"
+                "en": "Sentè logo with swan mark in cream on deep navy",
+                "fa": "لوگوی Sentè با نشان قو، به رنگ کِرم، روی سرمه‌ای"
               },
               "title": {
-                "en": "Four quiet colors",
-                "fa": "چهار رنگِ آرام"
+                "en": "Ink blue",
+                "fa": "آبیِ جوهری"
               },
               "caption": {
-                "en": "Borrowed from one still morning: milk, ink, sky and sand.",
-                "fa": "وام‌گرفته از یک صبحِ ساکت: شیر، جوهر، آسمان و شن."
+                "en": "The same swan, the same stillness, on a deeper blue.",
+                "fa": "همان قو، همان آرامش، روی آبیِ عمیق‌تر."
               }
             }
           ]
